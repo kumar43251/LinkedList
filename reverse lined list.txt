@@ -1,0 +1,11 @@
+    def reverseList(self, head: ListNode) -> ListNode:
+        pre=None
+        cur=head
+        while cur:
+            next=cur.next
+            cur.next=pre
+            pre=cur
+            cur=next
+        head=pre
+        return head
+    

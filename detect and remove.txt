@@ -1,0 +1,25 @@
+def remove(s,head):
+    ptr1=head
+    while 1:
+        ptr2=s
+        while ptr2.next!=s and ptr2.next!=ptr1:
+            ptr2=ptr2.next
+        if ptr2.next==ptr1:
+            break
+        ptr1=ptr1.next
+    ptr2=ptr2.next
+    
+    
+def removeLoop(head):
+    # code here
+    # remove the loop without losing any nodes
+    s=head
+    f=head
+    while s and f and f.next:
+        s=s.next
+        f=f.next.next
+        if s==f:
+            remove(s,head)
+            return 1
+    return 0
+        

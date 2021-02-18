@@ -1,0 +1,12 @@
+    def isPalindrome(self, head: ListNode) -> bool:
+        l=""
+        cur=head
+        while cur:
+            l+=str(abs(cur.val))
+            cur=cur.next
+        lth=len(l)
+        for i in range(0,(lth)//2):
+            if l[i]!=l[lth-i-1]:
+                return False
+        return True
+    

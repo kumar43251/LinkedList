@@ -1,0 +1,28 @@
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        carry=0
+        res=None
+        temp=None
+        pre=ListNode(None)
+        while l1!=None or l2!=None:
+            f1=0
+            if l1:
+                f1=l1.val
+            f2=0
+            if l2:
+                f2=l2.val
+            ans=f1+f2+carry
+            carry=0 if ans<10 else 1
+            ans=ans%10
+            temp=ListNode(ans)
+            if res==None:
+                res=temp
+            else:
+                pre.next=temp
+            pre=temp
+            if l1:
+                l1=l1.next
+            if l2:
+                l2=l2.next
+        if carry>0:
+            temp.next=ListNode(carry)
+        return res
